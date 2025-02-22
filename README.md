@@ -1,5 +1,15 @@
 ### Start example
 
+#### Default start 
+
+```
+podman run --name mysql -p 3306:3306 ghcr.io/multi-repo/mysql/mysql:main
+```
+if default start using url:
+``` mysql://myuser:mypassword@127.0.0.1:3306/mydatabase ```
+
+### Custom start
+
 ```
 podman run \
   --name mysql \
@@ -8,9 +18,8 @@ podman run \
   -e MYSQL_USER=myuser \
   -e MYSQL_PASSWORD=mypassword \
   -p 3306:3306 \
-  bitnami/mysql:latest
+  ghcr.io/multi-repo/mysql/mysql:main
 ```
 
-```
-mysql://myuser:mypassword@127.0.0.1:3306/mydatabase
-```
+#### Url format
+`mysql://[user]:[password]@[host]:[port]/[database]`
